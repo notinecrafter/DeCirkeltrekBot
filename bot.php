@@ -19,6 +19,10 @@ lachen - Lachen joh
 kek - kek
 applaus - Applaus!
 netjes - Netjes, netjes.
+wat - wat
+patat - Wat? Patat.
+waardeloos - waerdeleus
+jezus - Wat slecht
 toppie - Toppie meid.
 spanje - Een foto van Spanje
 willemsliefde - De liefde voor willem
@@ -63,6 +67,26 @@ else if (strlen(strstr($text,"/applaus"))>0) {
 //netjes
 else if (strlen(strstr($text,"/netjes"))>0) {
 	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADvgIAAsaj4AABihreNcuFbD0C' ));
+}
+
+//wat
+else if (strlen(strstr($text,"/wat"))>0) {
+	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile(realpath("/var/www/maartendekkers.com/LeveDeKoningBot-Telegram/assets/wat.jpg"))));
+}
+
+//patat
+else if (strlen(strstr($text,"/patat"))>0) {
+	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile(realpath("/var/www/maartendekkers.com/LeveDeKoningBot-Telegram/assets/patat.jpg"))));
+}
+
+//waardeloos
+else if (strlen(strstr($text,"/waardeloos"))>0) {
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAAD1AAD2U2JB26yI3XZE6IGAg' ));
+}
+
+//jezus
+else if (strlen(strstr($text,"/jezus"))>0) {
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAAD2AAD2U2JB4bqtEgPGqC_Ag' ));
 }
 
 //toppie
