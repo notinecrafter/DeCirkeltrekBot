@@ -2,13 +2,11 @@
 include("Telegram.php");
 
 //variables
-$bot_token = '264723170:AAE5LSm6HYgW-fKhSNtzkUM_mz31qF9UGLI';
+$bot_id = "264723170:AAE5LSm6HYgW-fKhSNtzkUM_mz31qF9UGLI";
+$telegram = new Telegram($bot_id);
+
 $oorporno = array("https://www.youtube.com/watch?v=xdb-KNTBdqA", "http://www.youtube.com/watch?v=hyB_VfrESNQ", "https://www.youtube.com/watch?v=_U2HsdbbDgI");
-
-$telegram = new Telegram($bot_token);
-
-$originaltext = $telegram->Text();
-$text = mb_strtolower($originaltext);
+$text = mb_strtolower($telegram->Text());
 $chat_id = $telegram->ChatID();
 
 //messages
@@ -35,9 +33,11 @@ kopieerpasta - De fijnste WILLIEkeurige kopieerpasta's.
 oorporno - De fijnste oorporno's van onder andere Dries.
 drieswave - D R I E S W A V E
 proost- Proost
+opwillem - Opwillem
 levededev - Wat info over de shitty developers
 
 */
+
 function copypasta($copypasta) {
    $filename = "./assets/kopieerpasta/" . $copypasta;
    if (file_exists($filename)) {
@@ -47,13 +47,11 @@ function copypasta($copypasta) {
    }
 }
 
-function random_copypasta($dir = 'assets/kopieerpasta')
-{
+function random_copypasta($dir = 'assets/kopieerpasta') {
     $files = glob($dir . '/*.*');
     $file = array_rand($files);
     return copypasta($files[$file]);
 }
-
 
 function oorporno() {
     $count = count($oorporno) - 1;
@@ -147,11 +145,6 @@ else if (strlen(strstr($text, "/waarisdekoning"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Hier is de koning! \xF0\x9F\x98\x9C"));
 }
 
-//levededev
-else if (strlen(strstr($text,"/levededev"))>0) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84"));
-}
-
 //kopieerpasta
 else if (strlen(strstr($text,"/kopieerpasta"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => random_copypasta()));
@@ -170,6 +163,16 @@ else if (strlen(strstr($text,"/drieswave"))>0) {
 //proost
 else if (strlen(strstr($text,"/proost"))>0) {
 	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BBQADBAADcwADkzoFAAG-8JnnS_BGLgI' ));
+}
+
+//opwillem
+else if (strlen(strstr($text,"/opwillem"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/opwillem.jpg")));
+}
+
+//levededev
+else if (strlen(strstr($text,"/levededev"))>0) {
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84"));
 }
 
 ?>
