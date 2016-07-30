@@ -148,7 +148,7 @@ else if (strlen(strstr($text,"/oorporno"))>0) {
 
 //drieswave
 else if (strlen(strstr($text,"/drieswave"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/drieswave.jpg")));
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/drieswave.png")));
 }
 
 //proost
