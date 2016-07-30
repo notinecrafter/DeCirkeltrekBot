@@ -33,6 +33,8 @@ koningslied - Stuurt het koningslied
 waarisdekoning - Stuurt de locatie van Willem
 kopieerpasta - De fijnste WILLIEkeurige kopieerpasta's.
 oorporno - De fijnste oorporno's van onder andere Dries.
+drieswave - D R I E S W A V E
+proost- Proost
 levededev - Wat info over de shitty developers
 
 */
@@ -149,12 +151,25 @@ else if (strlen(strstr($text, "/waarisdekoning"))>0) {
 else if (strlen(strstr($text,"/levededev"))>0) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84"));
 }
+
 //kopieerpasta
 else if (strlen(strstr($text,"/kopieerpasta"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => random_copypasta()));
 }
+
 //oorporno
 else if (strlen(strstr($text,"/oorporno"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => oorporno()));
 }
+
+//drieswave
+else if (strlen(strstr($text,"/drieswave"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/drieswave.jpg")));
+}
+
+//proost
+else if (strlen(strstr($text,"/proost"))>0) {
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BBQADBAADcwADkzoFAAG-8JnnS_BGLgI' ));
+}
+
 ?>
