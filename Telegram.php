@@ -113,7 +113,9 @@ class Telegram {
     public function Text() {
         return $this->data["message"] ["text"];
     }
-
+    public function MessageID() {
+        return $this->data["message"]["message_id"];
+    }
     public function ChatID() {
         return $this->data["message"]["chat"]["id"];
     }
@@ -135,7 +137,6 @@ class Telegram {
     }
 
     public function Callback_ChatID() {
-        return $this->data["callback_query"]["message"]["chat"]["id"];
     }
 
     public function Date() {

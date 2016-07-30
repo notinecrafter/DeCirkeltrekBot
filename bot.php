@@ -2,8 +2,10 @@
 include("Telegram.php");
 
 //variables
-$bot_id = "264723170:AAE5LSm6HYgW-fKhSNtzkUM_mz31qF9UGLI";
-$telegram = new Telegram($bot_id);
+define(BOT_TOKEN, "264723170:AAE5LSm6HYgW-fKhSNtzkUM_mz31qF9UGLI");
+define(OORPORNO, array("https://www.youtube.com/watch?v=xdb-KNTBdqA", "http://www.youtube.com/watch?v=hyB_VfrESNQ", "https://www.youtube.com/watch?v=_U2HsdbbDgI"));
+
+$telegram = new Telegram(BOT_TOKEN);
 
 $originaltext = $telegram->Text();
 $text = mb_strtolower($originaltext);
@@ -29,10 +31,33 @@ spanje - Een foto van Spanje
 willemsliefde - De liefde voor willem
 koningslied - Stuurt het koningslied
 waarisdekoning - Stuurt de locatie van Willem
-levededev - Wat info over de shitty developer
+kopieerpasta - De fijnste WILLIEkeurige kopieerpasta's.
+oorporno - 
+levededev - Wat info over de shitty developers
 
 */
+function copypasta($copypasta) {
+   $filename = "./assets/kopieerpasta/" . $copypasta;
+   if (file_exists($filename)) {
+       return file_get_contents($filename);
+   } else {
+       return false;
+   }
+}
 
+function random_copypasta($dir = 'assets/kopieerpasta')
+{
+    $files = glob($dir . '/*.*');
+    $file = array_rand($files);
+    return copypasta($files[$file]);
+}
+
+
+function oorporno() {
+    $count = count(OORPORNO) - 1;
+    $random = rand(0, $count);
+    return $oorporno[$random];
+}
 
 //leve de koning!
 if (strlen(strstr($text," koning"))>0 && strlen(strstr($text," de "))>0 && strlen(strstr($text,"leve "))>0 && substr( $text, 0, 1 ) !== "/" ) {
@@ -41,18 +66,18 @@ if (strlen(strstr($text," koning"))>0 && strlen(strstr($text," de "))>0 && strle
 
 //levedekoning
 else if (strlen(strstr($text,"/levedekoning"))>0) {
-	$telegram->sendVoice(array('chat_id' => $chat_id, 'voice' => new CURLFile(realpath("/var/www/maartendekkers.com/LeveDeKoningBot-Telegram/assets/levedekoning.mp3"))));
+	$telegram->sendVoice(array('chat_id' => $chat_id, 'voice' => new CURLFile("./assets/levedekoning.mp3"));
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Leve de koning!"));
 }
 
 //willempie
 else if (strlen(strstr($text,"/willempie"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile(realpath("/var/www/maartendekkers.com/LeveDeKoningBot-Telegram/assets/willem.jpg"))));
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/willem.jpg"));
 }
 
 //lachen
 else if (strlen(strstr($text,"/lachen"))>0) {
-	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile(realpath("/var/www/maartendekkers.com/LeveDeKoningBot-Telegram/assets/lachen.gif"))));
+	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/lachen.gif"));
 }
 
 //kek
@@ -72,12 +97,12 @@ else if (strlen(strstr($text,"/netjes"))>0) {
 
 //wat
 else if (strlen(strstr($text,"/wat"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile(realpath("/var/www/maartendekkers.com/LeveDeKoningBot-Telegram/assets/wat.jpg"))));
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/wat.jpg"));
 }
 
 //patat
 else if (strlen(strstr($text,"/patat"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile(realpath("/var/www/maartendekkers.com/LeveDeKoningBot-Telegram/assets/patat.jpg"))));
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/patat.jpg"));
 }
 
 //waardeloos
@@ -102,7 +127,7 @@ else if (strlen(strstr($text,"/toppie"))>0) {
 
 //spanje
 else if (strlen(strstr($text,"/spanje"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile(realpath("/var/www/maartendekkers.com/LeveDeKoningBot-Telegram/assets/spanje.jpg"))));
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/spanje.jpg"));
 }
 
 //willemsliefde
@@ -114,7 +139,7 @@ else if (strlen(strstr($text,"/willemsliefde"))>0 || strlen(strstr($text,"/konin
 else if (strlen(strstr($text,"/koningslied"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'https://www.youtube.com/watch?v=MEUKyKb4g6k'));
 }
-
+ss
 //waarisdekoning
 else if (strlen(strstr($text, "/waarisdekoning"))>0) {
 	$telegram->sendLocation(array('chat_id' => $chat_id, 'latitude' => '52.080810', 'longitude' => '4.306228'));
@@ -123,6 +148,14 @@ else if (strlen(strstr($text, "/waarisdekoning"))>0) {
 
 //levededev
 else if (strlen(strstr($text,"/levededev"))>0) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut. \xF0\x9F\x98\x84"));
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84"));
+}
+//kopieerpasta
+else if (strlen(strstr($text,"/kopieerpasta"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => random_copypasta()));
+}
+//oorporno
+else if (strlen(strstr($text,"/oorporno"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => oorporno()));
 }
 ?>
