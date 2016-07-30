@@ -8,6 +8,8 @@ $telegram = new Telegram($bot_id);
 $text = mb_strtolower($telegram->Text());
 $chat_id = $telegram->ChatID();
 
+//fiyjiefwhfjsgdjfgedfswdsfsdfsd
+
 //messages
 
 /* oke, dit zijn de commands
