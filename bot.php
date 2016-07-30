@@ -22,6 +22,7 @@ netjes - Netjes, netjes.
 wat - wat
 patat - Wat? Patat.
 waardeloos - waerdeleus
+perfect - perfect
 jezus - Wat slecht
 toppie - Toppie meid.
 spanje - Een foto van Spanje
@@ -82,6 +83,11 @@ else if (strlen(strstr($text,"/patat"))>0) {
 //waardeloos
 else if (strlen(strstr($text,"/waardeloos"))>0) {
 	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAAD1AAD2U2JB26yI3XZE6IGAg' ));
+}
+
+//perfect
+else if (strlen(strstr($text,"/perfect"))>0) {
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADFgADkzoFAAHdW_c7r7CjaAI' ));
 }
 
 //jezus
