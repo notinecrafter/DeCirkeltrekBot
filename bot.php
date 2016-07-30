@@ -201,7 +201,7 @@ else if (strlen(strstr($text,"/opwillem"))>0) {
 }
 
 //noice
-else if (strlen(strstr($text,"/lachen"))>0) {
+else if (strlen(strstr($text,"/noice"))>0) {
 	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/noice.gif")));
 }
 
