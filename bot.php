@@ -156,7 +156,7 @@ else if (strlen(strstr($text,"/aanvalshelikopter"))>0) {
 
 //meemsterkaas
 else if (strlen(strstr($text,"/meemsterkaas"))>0) {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/meemster.txt')));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/meemsterkaas.txt')));
 }
 
 //cirkeltrek
