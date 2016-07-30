@@ -10,7 +10,7 @@ $chat_id = $telegram->ChatID();
 
 //messages
 
-/* oke, dit zijn de commands, wel bijhouden.
+/* oke, dit zijn de commands, wel bijhouden he.
 
 levedekoning - Leve de koning!
 willempie - Foto van onze sexy willem
