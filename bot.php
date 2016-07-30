@@ -5,7 +5,6 @@ include("Telegram.php");
 $bot_id = "264723170:AAE5LSm6HYgW-fKhSNtzkUM_mz31qF9UGLI";
 $telegram = new Telegram($bot_id);
 
-$oorporno = array("https://www.youtube.com/watch?v=xdb-KNTBdqA", "http://www.youtube.com/watch?v=hyB_VfrESNQ", "https://www.youtube.com/watch?v=_U2HsdbbDgI");
 $text = mb_strtolower($telegram->Text());
 $chat_id = $telegram->ChatID();
 
@@ -37,23 +36,15 @@ opwillem - Opwillem
 levededev - Wat info over de shitty developers
 
 */
-
-function copypasta($copypasta) {
-   $filename = "./assets/kopieerpasta/" . $copypasta;
-   if (file_exists($filename)) {
-       return file_get_contents($filename);
-   } else {
-       return false;
-   }
-}
-
-function random_copypasta($dir = 'assets/kopieerpasta') {
+function kopieerpasta($dir = 'assets/kopieerpasta') {
     $files = glob($dir . '/*.*');
     $file = array_rand($files);
-    return copypasta($files[$file]);
+    $kopieerpasta = file_get_contents($files[$file]);
+    return $kopieerpasta ;
 }
 
 function oorporno() {
+    $oorporno = array("https://www.youtube.com/watch?v=xdb-KNTBdqA", "http://www.youtube.com/watch?v=hyB_VfrESNQ", "https://www.youtube.com/watch?v=_U2HsdbbDgI");
     $count = count($oorporno) - 1;
     $random = rand(0, $count);
     return $oorporno[$random];
@@ -147,7 +138,7 @@ else if (strlen(strstr($text, "/waarisdekoning"))>0) {
 
 //kopieerpasta
 else if (strlen(strstr($text,"/kopieerpasta"))>0) {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => random_copypasta()));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => kopieerpasta()));
 }
 
 //oorporno
