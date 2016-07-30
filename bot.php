@@ -66,18 +66,18 @@ if (strlen(strstr($text," koning"))>0 && strlen(strstr($text," de "))>0 && strle
 
 //levedekoning
 else if (strlen(strstr($text,"/levedekoning"))>0) {
-	$telegram->sendVoice(array('chat_id' => $chat_id, 'voice' => new CURLFile("./assets/levedekoning.mp3"));
+	$telegram->sendVoice(array('chat_id' => $chat_id, 'voice' => new CURLFile("./assets/levedekoning.mp3")));
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Leve de koning!"));
 }
 
 //willempie
 else if (strlen(strstr($text,"/willempie"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/willem.jpg"));
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/willem.jpg")));
 }
 
 //lachen
 else if (strlen(strstr($text,"/lachen"))>0) {
-	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/lachen.gif"));
+	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/lachen.gif")));
 }
 
 //kek
@@ -97,12 +97,12 @@ else if (strlen(strstr($text,"/netjes"))>0) {
 
 //wat
 else if (strlen(strstr($text,"/wat"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/wat.jpg"));
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/wat.jpg")));
 }
 
 //patat
 else if (strlen(strstr($text,"/patat"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/patat.jpg"));
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/patat.jpg")));
 }
 
 //waardeloos
@@ -127,7 +127,7 @@ else if (strlen(strstr($text,"/toppie"))>0) {
 
 //spanje
 else if (strlen(strstr($text,"/spanje"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/spanje.jpg"));
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/spanje.jpg")));
 }
 
 //willemsliefde
