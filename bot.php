@@ -41,6 +41,8 @@ proost- Proost
 opwillem - Opwillem
 noice - noice.
 spam - spam
+feest - het is feest
+gaben - een foto van onze heer
 levededevs - Wat info over de shitty developers
 
 */
@@ -204,6 +206,16 @@ else if (strlen(strstr($text,"/opwillem"))>0) {
 //noice
 else if (strlen(strstr($text,"/noice"))>0) {
 	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/noice.gif")));
+}
+
+//feest
+else if (strlen(strstr($text,"/feest"))>0) {
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADAgADxAIAAi6uVQHaiW805ofWBgI' ));
+}
+
+//gaben
+else if (strlen(strstr($text,"/gaben"))>0) {
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADmAAD0KSvAAG0nuRpqVg8SwI' ));
 }
 
 //spam
