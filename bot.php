@@ -2,10 +2,10 @@
 include("Telegram.php");
 
 //variables
-define(BOT_TOKEN, "264723170:AAE5LSm6HYgW-fKhSNtzkUM_mz31qF9UGLI");
-define(OORPORNO, array("https://www.youtube.com/watch?v=xdb-KNTBdqA", "http://www.youtube.com/watch?v=hyB_VfrESNQ", "https://www.youtube.com/watch?v=_U2HsdbbDgI"));
+$bot_token = '264723170:AAE5LSm6HYgW-fKhSNtzkUM_mz31qF9UGLI';
+$oorporno = array("https://www.youtube.com/watch?v=xdb-KNTBdqA", "http://www.youtube.com/watch?v=hyB_VfrESNQ", "https://www.youtube.com/watch?v=_U2HsdbbDgI");
 
-$telegram = new Telegram(BOT_TOKEN);
+$telegram = new Telegram($bot_token);
 
 $originaltext = $telegram->Text();
 $text = mb_strtolower($originaltext);
@@ -32,7 +32,7 @@ willemsliefde - De liefde voor willem
 koningslied - Stuurt het koningslied
 waarisdekoning - Stuurt de locatie van Willem
 kopieerpasta - De fijnste WILLIEkeurige kopieerpasta's.
-oorporno - 
+oorporno - De fijnste oorporno's van onder andere Dries.
 levededev - Wat info over de shitty developers
 
 */
@@ -54,7 +54,7 @@ function random_copypasta($dir = 'assets/kopieerpasta')
 
 
 function oorporno() {
-    $count = count(OORPORNO) - 1;
+    $count = count($oorporno) - 1;
     $random = rand(0, $count);
     return $oorporno[$random];
 }
@@ -139,7 +139,6 @@ else if (strlen(strstr($text,"/willemsliefde"))>0 || strlen(strstr($text,"/konin
 else if (strlen(strstr($text,"/koningslied"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'https://www.youtube.com/watch?v=MEUKyKb4g6k'));
 }
-ss
 //waarisdekoning
 else if (strlen(strstr($text, "/waarisdekoning"))>0) {
 	$telegram->sendLocation(array('chat_id' => $chat_id, 'latitude' => '52.080810', 'longitude' => '4.306228'));
