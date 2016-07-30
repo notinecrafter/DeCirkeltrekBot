@@ -71,12 +71,12 @@ else if (strlen(strstr($text,"/netjes"))>0) {
 
 //wat
 else if (strlen(strstr($text,"/wat"))>0) {
-	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile(realpath("/var/www/maartendekkers.com/LeveDeKoningBot-Telegram/assets/wat.jpg"))));
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile(realpath("/var/www/maartendekkers.com/LeveDeKoningBot-Telegram/assets/wat.jpg"))));
 }
 
 //patat
 else if (strlen(strstr($text,"/patat"))>0) {
-	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile(realpath("/var/www/maartendekkers.com/LeveDeKoningBot-Telegram/assets/patat.jpg"))));
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile(realpath("/var/www/maartendekkers.com/LeveDeKoningBot-Telegram/assets/patat.jpg"))));
 }
 
 //waardeloos
