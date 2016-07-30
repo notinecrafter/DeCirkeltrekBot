@@ -29,11 +29,17 @@ willemsliefde - De liefde voor willem
 koningslied - Stuurt het koningslied
 waarisdekoning - Stuurt de locatie van Willem
 kopieerpasta - De fijnste WILLIEkeurige kopieerpasta's.
+aanvalshelikopter - Trekkerwaarschuwing
+meemsterkaas - de beste kaas
+cirkeltrek - de beste onderlashet
+goedepoep - dat is zeker goede poep daar
+watzeije - wat zei je daar over mij?
+stadhouders - even uitlaten
 oorporno - De fijnste oorporno's van onder andere Dries.
 drieswave - D R I E S W A V E
 proost- Proost
 opwillem - Opwillem
-levededev - Wat info over de shitty developers
+levededevs - Wat info over de shitty developers
 
 */
 function kopieerpasta($dir = 'assets/kopieerpasta') {
@@ -44,7 +50,9 @@ function kopieerpasta($dir = 'assets/kopieerpasta') {
 }
 
 function oorporno() {
-    $oorporno = array("https://www.youtube.com/watch?v=xdb-KNTBdqA", "http://www.youtube.com/watch?v=hyB_VfrESNQ", "https://www.youtube.com/watch?v=_U2HsdbbDgI");
+    $oorporno = array("http://www.youtube.com/watch?v=xdb-KNTBdqA",
+                      "http://www.youtube.com/watch?v=hyB_VfrESNQ",
+                      "http://www.youtube.com/watch?v=_U2HsdbbDgI");
     $count = count($oorporno) - 1;
     $random = rand(0, $count);
     return $oorporno[$random];
@@ -141,6 +149,36 @@ else if (strlen(strstr($text,"/kopieerpasta"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => kopieerpasta()));
 }
 
+//aanvalshelikopter
+else if (strlen(strstr($text,"/aanvalshelikopter"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/aanvalshelikopter.txt')));
+}
+
+//meemsterkaas
+else if (strlen(strstr($text,"/meemsterkaas"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/meemster.txt')));
+}
+
+//cirkeltrek
+else if (strlen(strstr($text,"/cirkeltrek"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/cirkeltrek.txt')));
+}
+
+//goedepoep
+else if (strlen(strstr($text,"/goedepoep"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/goedepoep.txt')));
+}
+
+//watzeije
+else if (strlen(strstr($text,"/watzeije"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/watzeije.txt')));
+}
+
+//stadhouders
+else if (strlen(strstr($text,"/stadhouders"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/stadhouders.txt')));
+}
+
 //oorporno
 else if (strlen(strstr($text,"/oorporno"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => oorporno()));
@@ -162,7 +200,7 @@ else if (strlen(strstr($text,"/opwillem"))>0) {
 }
 
 //levededev
-else if (strlen(strstr($text,"/levededev"))>0) {
+else if (strlen(strstr($text,"/levededevs"))>0) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84"));
 }
 
