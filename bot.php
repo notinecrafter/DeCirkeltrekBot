@@ -196,7 +196,7 @@ else if (strlen(strstr($text,"/proost"))>0) {
 
 //opwillem
 else if (strlen(strstr($text,"/opwillem"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/opwillem.jpg")));
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/opwillem.png")));
 }
 
 //levededev
