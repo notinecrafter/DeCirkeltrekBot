@@ -39,6 +39,7 @@ oorporno - De fijnste oorporno's van onder andere Dries.
 drieswave - D R I E S W A V E
 proost- Proost
 opwillem - Opwillem
+noice - noice.
 levededevs - Wat info over de shitty developers
 
 */
@@ -197,6 +198,11 @@ else if (strlen(strstr($text,"/proost"))>0) {
 //opwillem
 else if (strlen(strstr($text,"/opwillem"))>0) {
 	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADLAADkgu4AAG76ewKdZNbggI' ));
+}
+
+//noice
+else if (strlen(strstr($text,"/lachen"))>0) {
+	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/noice.gif")));
 }
 
 //levededev
