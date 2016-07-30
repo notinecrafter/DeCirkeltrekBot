@@ -43,6 +43,7 @@ noice - noice.
 spam - spam
 feest - het is feest
 gaben - een foto van onze heer
+getrekkert - getrekkert
 levededevs - Wat info over de shitty developers
 
 */
@@ -221,6 +222,11 @@ else if (strlen(strstr($text,"/gaben"))>0) {
 //spam
 else if (strlen(strstr($text,"/spam"))>0) {
 	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/spam.gif")));
+}
+
+//getrekkert
+else if (strlen(strstr($text,"/getrekkert"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/getrekkert.jpg")));
 }
 
 //levededev
