@@ -1,11 +1,14 @@
 <?php
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
 include("Telegram.php");
 include("ik_ihe.php");
 include("papgrap.php");
 include("feesboek.php");
 
 //variables
-$bot_id = "264723170:AAE5LSm6HYgW-fKhSNtzkUM_mz31qF9UGLI";
+$bot_id = file_get_contents('./ignore/token');
+print_r($bot_id);
 $telegram = new Telegram($bot_id);
 
 $text = mb_strtolower($telegram->Text());
