@@ -1,6 +1,7 @@
 <?php
 include("Telegram.php");
-include("feed.php");
+include("ik_ihe.php");
+include("papgrap.php");
 //variables
 $bot_id = "264723170:AAE5LSm6HYgW-fKhSNtzkUM_mz31qF9UGLI";
 $telegram = new Telegram($bot_id);
@@ -50,6 +51,7 @@ nee - nee
 ja - ja
 doei - doei
 ik_ihe - geeft de nieuwste ik_ihe post
+papgrap - stuurt een papgrap
 levededevs - Wat info over de shitty developers
 
 */
@@ -263,6 +265,11 @@ else if (strlen(strstr($text,"/doei"))>0 || strlen(strstr($text,"/dag"))>0) {
 //ik_ihe
 else if (strlen(strstr($text,"/ik_ihe"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => get_rss_feed_as_html('https://www.reddit.com/r/ik_ihe/new/.rss')));
+}
+
+//papgrap
+else if (strlen(strstr($text,"/papgrap"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'ben nog bezig lul'));
 }
 
 //levededev
