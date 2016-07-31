@@ -1,6 +1,6 @@
 <?php
 include("Telegram.php");
-
+include("feed.php");
 //variables
 $bot_id = "264723170:AAE5LSm6HYgW-fKhSNtzkUM_mz31qF9UGLI";
 $telegram = new Telegram($bot_id);
@@ -49,6 +49,7 @@ goedbezig - moet je nu een sticker?
 nee - nee
 ja - ja
 doei - doei
+ik_ihe - geeft de nieuwste ik_ihe post
 levededevs - Wat info over de shitty developers
 
 */
@@ -257,6 +258,11 @@ else if (strlen(strstr($text,"/ja"))>0) {
 //doei
 else if (strlen(strstr($text,"/doei"))>0 || strlen(strstr($text,"/dag"))>0) {
 	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADHQADkzoFAAGOXUKdbVRkMQI' ));
+}
+
+//ik_ihe
+else if (strlen(strstr($text,"/doei"))>0 || strlen(strstr($text,"/ik_ihe"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => output_rss_feed('https://www.reddit.com/r/ik_ihe/new/.rss')));
 }
 
 //levededev
