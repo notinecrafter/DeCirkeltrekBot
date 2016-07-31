@@ -57,6 +57,7 @@ helemaalmooi - ik vind helemaal mooi
 kut - kut
 kutzooi - kutzooi
 randig - randig
+nederland - stuurt een foto van Nederland
 levededevs - Wat info over de shitty developers
 
 */
@@ -300,6 +301,11 @@ else if (strlen(strstr($text,"/kutzooi"))>0 || strlen(strstr($text,"/kut")) == 0
 //randig
 else if (strlen(strstr($text,"/kutzooi"))>0 || strlen(strstr($text,"/randig")) == 0) {
 	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/randig.jpg")));
+}
+
+//nederland
+else if (strlen(strstr($text,"/nederland"))>0 {
+	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/nederland.jpg")));
 }
 
 //levededev
