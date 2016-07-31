@@ -52,6 +52,7 @@ ja - ja
 doei - doei
 ik_ihe - geeft de nieuwste ik_ihe post
 papgrap - stuurt een papgrap
+halt - halt
 levededevs - Wat info over de shitty developers
 
 */
