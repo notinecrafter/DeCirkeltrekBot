@@ -272,6 +272,11 @@ else if (strlen(strstr($text,"/papgrap"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => papgrap(), 'parse_mode' => 'markdown'));
 }
 
+//halt
+else if (strlen(strstr($text,"/halt"))>0) {
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADLgADkgu4AAEgqEHum5xBdAI' ));
+}
+
 //levededev
 else if (strlen(strstr($text,"/levededevs"))>0) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84"));
