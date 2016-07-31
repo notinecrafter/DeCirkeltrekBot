@@ -282,9 +282,9 @@ else if (strlen(strstr($text,"/kansloos"))>0) {
 	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADAQEAAtlNiQcKdjaIYPZ0qAI' ));
 }
 
-//klapklapklap
-else if (strlen(strstr($text,"/klapklapklap"))>0) {
-	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/klapklapklap.gif")));
+//klapklap
+else if (strlen(strstr($text,"/klapklap"))>0) {
+	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/klapklap.gif")));
 }
 
 //veelspam
