@@ -47,6 +47,7 @@ getrekkert - getrekkert
 moetdit - moet dit
 goedbezig - moet je nu een sticker?
 nee - nee
+ja - ja
 levededevs - Wat info over de shitty developers
 
 */
@@ -245,6 +246,11 @@ else if (strlen(strstr($text,"/goedbezig"))>0) {
 //nee
 else if (strlen(strstr($text,"/nee"))>0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/hahanee.jpg")));
+}
+
+//ja
+else if (strlen(strstr($text,"/ja"))>0) {
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADUwADkzoFAAGkGccCqSSWSAI' ));
 }
 
 //levededev
