@@ -23,7 +23,7 @@ function papgrap($max_item_cnt = 10) {
 		
 		$degrap = strstr($text, 'submitted', true);
 		
-        $result .=  convert_html_to_text($degrap);
+        $result .= strip_tags($degrap);
     }
     return $result;
 }
