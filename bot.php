@@ -304,7 +304,7 @@ else if (strlen(strstr($text,"/kutzooi"))>0 || strlen(strstr($text,"/randig")) =
 }
 
 //nederland
-else if (strlen(strstr($text,"/nederland"))>0 {
+else if (strlen(strstr($text,"/nederland"))>0) {
 	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/nederland.jpg")));
 }
 
