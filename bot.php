@@ -2,6 +2,8 @@
 include("Telegram.php");
 include("ik_ihe.php");
 include("papgrap.php");
+include("feesboek.php");
+
 //variables
 $bot_id = "264723170:AAE5LSm6HYgW-fKhSNtzkUM_mz31qF9UGLI";
 $telegram = new Telegram($bot_id);
@@ -300,6 +302,11 @@ else if (strlen(strstr($text,"/zoutig"))>0) {
 //meerjpeg
 else if (strlen(strstr($text,"/meerjpeg"))>0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/meerjpeg.jpg")));
+}
+
+//feesboek
+else if (strlen(strstr($text,"/feesboek"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => feesboek()));
 }
 
 //levededevs
