@@ -1,6 +1,5 @@
 <?php
-ini_set('display_errors', 'On');
-error_reporting(E_ALL);
+
 include("Telegram.php");
 include("functies.php");
 
@@ -313,6 +312,11 @@ else if (strlen(strstr($text,"/feesboek"))>0) {
 //opalberto
 else if (strlen(strstr($text,"/opalberto"))>0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/opalberto.jpg")));
+}
+
+//ditlooptuitdehand
+else if (strlen(strstr($text,"/ditlooptuitdehand"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/ditlooptuitdehand.jpg")));
 }
 
 //levededevs
