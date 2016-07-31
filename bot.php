@@ -257,13 +257,13 @@ else if (strlen(strstr($text,"/nederland"))>0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/nederland.jpg")));
 }
 
-//levededev
-else if (strlen(strstr($text,"/levededevs"))>0) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84 Ik sta op github. https://github.com/Maartenwut/LeveDeKoningBot-Telegram"));
+//angelsaksisch
+else if (strlen(strstr($text,"/angelsaksisch"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/angelsaksisch.jpg")));
 }
 
-//levedecommands
-else if (strlen(strstr($text,"/levedecommands"))>0) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('commands.txt')));
+//levededevs
+else if (strlen(strstr($text,"/levededevs"))>0) {
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84 Ik sta op github. https://github.com/Maartenwut/LeveDeKoningBot-Telegram"));
 }
 ?>
