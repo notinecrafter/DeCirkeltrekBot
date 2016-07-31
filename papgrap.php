@@ -13,7 +13,7 @@ function papgrap($max_item_cnt = 10) {
         );
         array_push($feed, $item);
     }
-    $rand = rand(0,10); 
+    $rand = rand(0,24); 
     for ($x=0;$x<1;$x++) {
         $title = $feed[$rand]['title'];
         $text = $feed[$rand]['text'];
