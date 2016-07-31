@@ -9,58 +9,7 @@ $telegram = new Telegram($bot_id);
 $text = mb_strtolower($telegram->Text());
 $chat_id = $telegram->ChatID();
 
-//messages
-
-/* commands
-
-levedekoning - Leve de koning!
-willempie - Foto van onze sexy willem
-lachen - Lachen joh
-kek - kek
-applaus - Applaus!
-netjes - Netjes, netjes.
-wat - wat
-patat - Wat? Patat.
-waardeloos - waerdeleus
-perfect - perfect
-jezus - Wat slecht
-toppie - Toppie meid.
-spanje - Een foto van Spanje
-willemsliefde - De liefde voor willem
-koningslied - Stuurt het koningslied
-waarisdekoning - Stuurt de locatie van Willem
-kopieerpasta - De fijnste WILLIEkeurige kopieerpasta's.
-aanvalshelikopter - Trekkerwaarschuwing
-meemsterkaas - de beste kaas
-cirkeltrek - de beste onderlashet
-goedepoep - dat is zeker goede poep daar
-watzeije - wat zei je daar over mij?
-stadhouders - even uitlaten
-oorporno - De fijnste oorporno's van onder andere Dries.
-drieswave - D R I E S W A V E
-proost- Proost
-opwillem - Opwillem
-noice - noice.
-spam - spam
-feest - het is feest
-gaben - een foto van onze heer
-getrekkert - getrekkert
-moetdit - moet dit
-goedbezig - moet je nu een sticker?
-nee - nee
-ja - ja
-doei - doei
-ik_ihe - geeft de nieuwste ik_ihe post
-papgrap - stuurt een papgrap
-halt - halt
-helemaalmooi - ik vind helemaal mooi
-kut - kut
-kutzooi - kutzooi
-randig - randig
-nederland - stuurt een foto van Nederland
-levededevs - Wat info over de shitty developers
-
-*/
+//beetje alles zo
 function kopieerpasta($dir = 'assets/kopieerpasta') {
     $files = glob($dir . '/*.*');
     $file = array_rand($files);
@@ -311,5 +260,10 @@ else if (strlen(strstr($text,"/nederland"))>0) {
 //levededev
 else if (strlen(strstr($text,"/levededevs"))>0) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84"));
+}
+
+//levedecommands
+else if (strlen(strstr($text,"/levedecommands"))>0) {
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/commands.txt')));
 }
 ?>
