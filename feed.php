@@ -1,16 +1,7 @@
 <?php
-// Check http://www.systutorials.com/136102/a-php-function-for-fetching-rss-feed-and-outputing-feed-items-as-html/ for description
-// RSS to HTML
-/*
-    $tiem_cnt: max number of feed items to be displayed
-    $max_words: max number of words (not real words, HTML words)
-    if <= 0: no limitation, if > 0 display at most $max_words words
- */
- ini_set('display_errors', 'On');
-error_reporting(E_ALL);
 function get_rss_feed_as_html($feed_url, $max_item_cnt = 1)
 {
-	$result = null;
+    $result = null;
     // get feeds and parse items
     $rss = new DOMDocument();
     // load from file or load content
@@ -30,8 +21,8 @@ function get_rss_feed_as_html($feed_url, $max_item_cnt = 1)
         $result .= $title;
         $result .= "<br />";
 		
-		$regex = '/https?\:\/\/[^\" ]+/i';
-		preg_match_all($regex, $link, $matches);
+	$regex = '/https?\:\/\/[^\" ]+/i';
+	preg_match_all($regex, $link, $matches);
 		
         $result .= $matches[0][1];
         $result .= "<br />";
