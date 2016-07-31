@@ -269,5 +269,5 @@ else if (strlen(strstr($text,"/ik_ihe"))>0) {
 else if (strlen(strstr($text,"/levededevs"))>0) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84"));
 }
-output_rss_feed('https://www.reddit.com/r/ik_ihe/new/.rss')
+output_rss_feed('https://www.reddit.com/r/ik_ihe/new/.rss');
 ?>
