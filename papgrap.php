@@ -21,7 +21,7 @@ function papgrap($max_item_cnt = 10) {
         $result .= PHP_EOL;
         $result .= PHP_EOL;
 		
-		$degrap = strstr($text, 'submitted', true);
+		$degrap = strstr($text, '&lt;/p&gt; &lt;/div&gt;&lt;!-- SC_ON', true);
 		
         $result .= urldecode(strip_tags($degrap));
     }
