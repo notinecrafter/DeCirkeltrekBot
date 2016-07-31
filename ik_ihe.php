@@ -14,9 +14,10 @@ function ik_ihe($max_item_cnt = 1) {
         array_push($feed, $item);
     }
     
+    $rand = rand(0,24); 
     for ($x=0;$x<$max_item_cnt;$x++) {
-        $title = $feed[$x]['title'];
-        $link = $feed[$x]['link'];
+        $title = $feed[$rand]['title'];
+        $link = $feed[$rand]['link'];
         $result .= $title;
         $result .= PHP_EOL;
 		
