@@ -44,3 +44,4 @@ kutzooi - kutzooi
 randig - randig
 nederland - stuurt een foto van Nederland
 levededevs - Wat info over de shitty developers
+levedecommands - Lijstje commands WAARSCHUWING: GROOT
