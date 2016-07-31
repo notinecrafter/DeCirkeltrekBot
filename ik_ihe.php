@@ -17,7 +17,7 @@ function ik_ihe() {
     $rand = rand(0,24); 
     for ($x=0;$x<1;$x++) {
         $title = $feed[$rand]['title'];
-        $link = $feed[$rand]['link'];
+        $link = strstr($feed[$rand]['link'], 'submitted')
         $result .= $title;
         $result .= PHP_EOL;
 		
