@@ -1,10 +1,10 @@
 <?php
-function get_rss_feed_as_html($feed_url, $max_item_cnt = 1) {
+function ik_ihe($max_item_cnt = 1) {
     $result = null;
     // get feeds and parse items
     $rss = new DOMDocument();
     // load from file or load content
-    $rss->load($feed_url);
+    $rss->load('https://www.reddit.com/r/ik_ihe/new/.rss');
     $feed = array();
     foreach ($rss->getElementsByTagName('entry') as $node) {
         $item = array (
