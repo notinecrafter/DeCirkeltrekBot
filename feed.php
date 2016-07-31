@@ -1,6 +1,5 @@
 <?php
-function get_rss_feed_as_html($feed_url, $max_item_cnt = 1)
-{
+function get_rss_feed_as_html($feed_url, $max_item_cnt = 1) {
     $result = null;
     // get feeds and parse items
     $rss = new DOMDocument();
@@ -15,6 +14,7 @@ function get_rss_feed_as_html($feed_url, $max_item_cnt = 1)
         );
         array_push($feed, $item);
     }
+    
     for ($x=0;$x<$max_item_cnt;$x++) {
         $title = $feed[$x]['title'];
         $link = $feed[$x]['link'];
@@ -29,9 +29,6 @@ function get_rss_feed_as_html($feed_url, $max_item_cnt = 1)
     }
     return $result;
 }
-function output_rss_feed($feed_url)
-{
-    echo get_rss_feed_as_html($feed_url);
-}
 
+ echo get_rss_feed_as_html('https://www.reddit.com/r/ik_ihe/new/.rss')
 ?>
