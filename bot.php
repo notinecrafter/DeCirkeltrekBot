@@ -44,6 +44,8 @@ spam - spam
 feest - het is feest
 gaben - een foto van onze heer
 getrekkert - getrekkert
+moetdit - moet dit
+goedbezig - moet je nu een sticker?
 levededevs - Wat info over de shitty developers
 
 */
@@ -227,6 +229,16 @@ else if (strlen(strstr($text,"/spam"))>0) {
 //getrekkert
 else if (strlen(strstr($text,"/getrekkert"))>0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/getrekkert.jpg")));
+}
+
+//moetdit
+else if (strlen(strstr($text,"/moetdit"))>0) {
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADLwADOXRRAzX6um5Sinh6Ag' ));
+}
+
+//goedbezig
+else if (strlen(strstr($text,"/goedbezig"))>0) {
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAAD0gAD2U2JB1VxulAa-EKkAg' ));
 }
 
 //levededev
