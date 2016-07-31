@@ -1,5 +1,5 @@
 <?php
-public function get_rss_feed_as_html($feed_url, $max_item_cnt = 1) {
+function get_rss_feed_as_html($feed_url, $max_item_cnt = 1) {
     $result = null;
     // get feeds and parse items
     $rss = new DOMDocument();
@@ -10,7 +10,6 @@ public function get_rss_feed_as_html($feed_url, $max_item_cnt = 1) {
         $item = array (
             'title' => $node->getElementsByTagName('title')->item(0)->nodeValue,
             'link' => $node->getElementsByTagName('content')->item(0)->nodeValue
-			
         );
         array_push($feed, $item);
     }
@@ -19,13 +18,12 @@ public function get_rss_feed_as_html($feed_url, $max_item_cnt = 1) {
         $title = $feed[$x]['title'];
         $link = $feed[$x]['link'];
         $result .= $title;
-        $result .= "<br />";
+        $result .= PHP_EOL;
 		
 	$regex = '/https?\:\/\/[^\" ]+/i';
 	preg_match_all($regex, $link, $matches);
 		
         $result .= $matches[0][1];
-        $result .= "<br />";
     }
     return $result;
 }

@@ -262,7 +262,7 @@ else if (strlen(strstr($text,"/doei"))>0 || strlen(strstr($text,"/dag"))>0) {
 
 //ik_ihe
 else if (strlen(strstr($text,"/ik_ihe"))>0) {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => convert_html_to_text(get_rss_feed_as_html('https://www.reddit.com/r/ik_ihe/new/.rss'))));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => get_rss_feed_as_html('https://www.reddit.com/r/ik_ihe/new/.rss')));
 }
 
 //levededev
