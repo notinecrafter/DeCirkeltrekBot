@@ -43,5 +43,6 @@ kut - kut
 kutzooi - kutzooi
 randig - randig
 nederland - stuurt een foto van Nederland
+angelsaksisch - hier spreekt men Nederlands
+hoekig - hoekig
 levededevs - Wat info over de shitty developers
-levedecommands - commands GROTE LIJST
