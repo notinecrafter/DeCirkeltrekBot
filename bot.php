@@ -53,6 +53,10 @@ doei - doei
 ik_ihe - geeft de nieuwste ik_ihe post
 papgrap - stuurt een papgrap
 halt - halt
+helemaalmooi - ik vind helemaal mooi
+kut - kut
+kutzooi - kutzooi
+randig - randig
 levededevs - Wat info over de shitty developers
 
 */
@@ -276,6 +280,26 @@ else if (strlen(strstr($text,"/papgrap"))>0) {
 //halt
 else if (strlen(strstr($text,"/halt"))>0) {
 	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADLgADkgu4AAEgqEHum5xBdAI' ));
+}
+
+//helemaalmooi
+else if (strlen(strstr($text,"/helemaalmooi"))>0) {
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADPQADOXRRA549oF1BJ6kPAg' ));
+}
+
+//kut
+else if (strlen(strstr($text,"/kut"))>0 || strlen(strstr($text,"/kutzooi")) == 0) {
+	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/kut.jpg")));
+}
+
+//kutzooi
+else if (strlen(strstr($text,"/kutzooi"))>0 || strlen(strstr($text,"/kut")) == 0) {
+	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/kutzooi.png")));
+}
+
+//randig
+else if (strlen(strstr($text,"/kutzooi"))>0 || strlen(strstr($text,"/randig")) == 0) {
+	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/randig.jpg")));
 }
 
 //levededev
