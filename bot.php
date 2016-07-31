@@ -270,7 +270,7 @@ else if (strlen(strstr($text,"/ik_ihe"))>0) {
 
 //papgrap
 else if (strlen(strstr($text,"/papgrap"))>0) {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => papgrap(), 'parse_mode' => 'markdown'));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => papgrap(), 'parse_mode' => markdown));
 }
 
 //halt
