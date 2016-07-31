@@ -275,6 +275,11 @@ else if (strlen(strstr($text,"/goedverhaal"))>0) {
 //zucht
 else if (strlen(strstr($text,"/zucht"))>0) {
 	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADEwADbkngC6ANL5qYiJcwAg' ));
+}BQADBAADAQEAAtlNiQcKdjaIYPZ0qAI
+
+//kansloos
+else if (strlen(strstr($text,"/kansloos"))>0) {
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADAQEAAtlNiQcKdjaIYPZ0qAI' ));
 }
 
 //levededevs
