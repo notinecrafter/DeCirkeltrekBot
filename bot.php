@@ -2,9 +2,7 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 include("Telegram.php");
-include("ik_ihe.php");
-include("papgrap.php");
-include("feesboek.php");
+include("functies.php");
 
 //variables
 $bot_id = file_get_contents('./ignore/token');
