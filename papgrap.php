@@ -17,7 +17,7 @@ function papgrap() {
     for ($x=0;$x<1;$x++) {
         $title = $feed[$rand]['title'];
         $text = $feed[$rand]['text'];
-        $result .= '**'.$title.'**';
+        $result .= '*'.$title.'*';
         $result .= PHP_EOL;
         $result .= PHP_EOL;
 		
