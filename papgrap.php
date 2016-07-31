@@ -21,7 +21,7 @@ function papgrap() {
         $result .= PHP_EOL;
         $result .= PHP_EOL;
 		
-		$degrap = strstr($text, '</p> ', true);
+		$degrap = strstr($text, '</p> </div>', true);
 		
         $result .= urldecode(strip_tags($degrap));
     }
