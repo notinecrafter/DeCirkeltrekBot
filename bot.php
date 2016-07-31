@@ -48,6 +48,7 @@ moetdit - moet dit
 goedbezig - moet je nu een sticker?
 nee - nee
 ja - ja
+doei - doei
 levededevs - Wat info over de shitty developers
 
 */
@@ -251,6 +252,11 @@ else if (strlen(strstr($text,"/nee"))>0) {
 //ja
 else if (strlen(strstr($text,"/ja"))>0) {
 	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADUwADkzoFAAGkGccCqSSWSAI' ));
+}
+
+//doei
+else if (strlen(strstr($text,"/doei"))>0 || strlen(strstr($text,"/dag"))>0) {
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADHQADkzoFAAGOXUKdbVRkMQI' ));
 }
 
 //levededev
