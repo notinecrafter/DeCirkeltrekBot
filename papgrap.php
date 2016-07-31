@@ -1,5 +1,5 @@
 <?php
-function papgrap($max_item_cnt = 10) {
+function papgrap() {
     $result = null;
     // get feeds and parse items
     $rss = new DOMDocument();
