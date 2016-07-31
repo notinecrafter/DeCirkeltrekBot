@@ -289,23 +289,23 @@ else if (strlen(strstr($text,"/helemaalmooi"))>0) {
 }
 
 //kut
-else if (strlen(strstr($text,"/kut"))>0 || strlen(strstr($text,"/kutzooi")) == 0) {
-	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/kut.jpg")));
+else if (strlen(strstr($text,"/kut"))>0 && strlen(strstr($text,"/kutzooi")) == 0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/kut.jpg")));
 }
 
 //kutzooi
-else if (strlen(strstr($text,"/kutzooi"))>0 || strlen(strstr($text,"/kut")) == 0) {
-	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/kutzooi.png")));
+else if (strlen(strstr($text,"/kutzooi"))>0 && strlen(strstr($text,"/kut")) == 0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/kutzooi.png")));
 }
 
 //randig
-else if (strlen(strstr($text,"/kutzooi"))>0 || strlen(strstr($text,"/randig")) == 0) {
-	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/randig.jpg")));
+else if (strlen(strstr($text,"/randig"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/randig.jpg")));
 }
 
 //nederland
 else if (strlen(strstr($text,"/nederland"))>0) {
-	$telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/nederland.jpg")));
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/nederland.jpg")));
 }
 
 //levededev
