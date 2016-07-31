@@ -264,6 +264,6 @@ else if (strlen(strstr($text,"/levededevs"))>0) {
 
 //levedecommands
 else if (strlen(strstr($text,"/levedecommands"))>0) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/commands.txt')));
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('commands.txt')));
 }
 ?>
