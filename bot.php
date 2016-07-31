@@ -243,7 +243,7 @@ else if (strlen(strstr($text,"/kut"))>0 && strlen(strstr($text,"/kutzooi")) == 0
 }
 
 //kutzooi
-else if (strlen(strstr($text,"/kutzooi"))>0 && strlen(strstr($text,"/kut")) == 0) {
+else if (strlen(strstr($text,"/kutzooi"))>0 && strlen(strstr($text,"/kut ")) == 0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/kutzooi.png")));
 }
 
