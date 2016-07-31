@@ -262,7 +262,7 @@ else if (strlen(strstr($text,"/doei"))>0 || strlen(strstr($text,"/dag"))>0) {
 
 //ik_ihe
 else if (strlen(strstr($text,"/ik_ihe"))>0) {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => ));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('feed.php')));
 }
 
 //levededev
