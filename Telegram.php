@@ -1,7 +1,5 @@
 <?php
 class Telegram {
-	
-	//hoi
 
     private $bot_id = "264723170:AAE5LSm6HYgW-fKhSNtzkUM_mz31qF9UGLI";
     private $data = array();
