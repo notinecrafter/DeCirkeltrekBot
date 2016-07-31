@@ -297,6 +297,11 @@ else if (strlen(strstr($text,"/zoutig"))>0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/zoutig.jpg")));
 }
 
+//meerjpeg
+else if (strlen(strstr($text,"/meerjpeg"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/meerjpeg.jpg")));
+}
+
 //levededevs
 else if (strlen(strstr($text,"/levededevs"))>0) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84 Ik sta op github. https://github.com/Maartenwut/LeveDeKoningBot-Telegram"));
