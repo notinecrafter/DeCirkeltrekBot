@@ -1,5 +1,5 @@
 <?php
-function ik_ihe($max_item_cnt = 1) {
+function ik_ihe() {
     $result = null;
     // get feeds and parse items
     $rss = new DOMDocument();
@@ -15,7 +15,7 @@ function ik_ihe($max_item_cnt = 1) {
     }
     
     $rand = rand(0,24); 
-    for ($x=0;$x<$max_item_cnt;$x++) {
+    for ($x=0;$x<1;$x++) {
         $title = $feed[$rand]['title'];
         $link = $feed[$rand]['link'];
         $result .= $title;
