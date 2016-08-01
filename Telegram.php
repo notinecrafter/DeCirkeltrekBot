@@ -198,10 +198,7 @@ class Telegram {
     }
 
     public function getGroupName() {
-        if (messageFromGroup() == true) {
-            return $this->data["message"]["chat"]["title"];
-        }
-        return;
+	return $this->data["message"]["chat"]["title"];
     }
 
     public function getUpdates($offset = 0, $limit = 100, $timeout = 0, $update = true) {
