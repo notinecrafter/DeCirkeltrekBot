@@ -9,7 +9,7 @@ function kopieerpasta($dir = 'assets/kopieerpasta') {
 function nsb($dir = 'assets/nsb') {
     $files = glob($dir . '/*.*');
     $file = array_rand($files);
-    $nsb = file_get_contents($files[$file]);
+    $nsb = new CURLFile($files[$file]);
     return $nsb;
 }
 
