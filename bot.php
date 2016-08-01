@@ -380,12 +380,12 @@ else if (strlen(strstr($text,"/levededevs"))>0) {
 }
 
 //nieuw persoon
-else if ($telegram->getParticipantUpdate() == 'new') {
+else if ($telegram->newPerson() == true) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Welkom in" . $telegram->getGroupName() . ", " . $telegram->getParticipantName() . "!"));
 }
 
 //persoon weg
-else if ($telegram->getParticipantUpdate() == 'left') {
+else if ($telegram->newPerson() == false) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $telegram->getParticipantName() . " was gehalt."));
 }
 
@@ -393,7 +393,7 @@ print_r($telegram->messageFromGroup());
 echo '<br>';
 echo 'groepnaam=' . $telegram->getGroupName();
 echo '<br>';
-echo 'new of left=' . $telegram->getParticipantUpdate();
+echo 'new of left=' . $telegram->newPerson();
 echo '<br>';
 echo 'persoon=' . $telegram->getParticipantName();
 ?>
