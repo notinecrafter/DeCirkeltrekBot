@@ -178,28 +178,24 @@ class Telegram {
         }
         return true;
     }
-/*
-    public function getGroupName() {
-	return $this->data["message"]["chat"]["title"];
-    }
 
-    public function newPerson() {
-        if ($this->data["message"]["new_chat_participant"]["first_name"] != "") {
-            return true;
-        } else if ($this->data["message"]["left_chat_participant"]["first_name"] != "") {
-            return false;
+    public function person() {
+        if (isset($this->data["message"]["new_chat_participant"]["first_name"]) == true) {
+            return 'new';
+        } else if (isset($this->data["message"]["left_chat_participant"]["first_name"]) == true) {
+            return 'left';
         }
-        return null;
+        return false;
     }
-
-    public function getParticipantName() {
-        if ($this->data["message"]["left_chat_participant"]["first_name"] != "") {
-            return $this->data["message"]["left_chat_participant"]["first_name"];
-        } else if ($this->data["message"]["new_chat_participant"]["first_name"] != "") {
+	
+    public function personName() {
+        if (isset($this->data["message"]["new_chat_participant"]["first_name"]) == true) {
             return $this->data["message"]["new_chat_participant"]["first_name"];
+        } else if (isset($this->data["message"]["left_chat_participant"]["first_name"]) == true) {
+            return $this->data["message"]["left_chat_participant"]["first_name"];
         }
         return null;
-    }*/
+    }
 
     public function getUpdates($offset = 0, $limit = 100, $timeout = 0, $update = true) {
         $content = array('offset' => $offset, 'limit' => $limit, 'timeout' => $timeout);
