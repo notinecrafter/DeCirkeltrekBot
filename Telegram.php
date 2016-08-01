@@ -184,18 +184,18 @@ class Telegram {
     }
 
     public function newPerson() {
-        if ($this->data["message"]["new_chat_participant"]["first_name"] !== "") {
+        if ($this->data["message"]["new_chat_participant"]["first_name"] != "") {
             return true;
-        } else if ($this->data["message"]["left_chat_participant"]["first_name"] !== "") {
+        } else if ($this->data["message"]["left_chat_participant"]["first_name"] != "") {
             return false;
         }
         return null;
     }
 
     public function getParticipantName() {
-        if ($this->data["message"]["left_chat_participant"]["first_name"] !== "") {
+        if ($this->data["message"]["left_chat_participant"]["first_name"] != "") {
             return $this->data["message"]["left_chat_participant"]["first_name"];
-        } else if ($this->data["message"]["new_chat_participant"]["first_name"] !== "") {
+        } else if ($this->data["message"]["new_chat_participant"]["first_name"] != "") {
             return $this->data["message"]["new_chat_participant"]["first_name"];
         }
         return null;
