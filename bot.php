@@ -379,6 +379,12 @@ else if (strlen(strstr($text,"/levededevs"))>0) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84" . PHP_EOL . "Ik sta op github. https://github.com/Maartenwut/LeveDeKoningBot-Telegram"));
 }
 
+//vochtig
+else if (strlen(strstr($text,"/vochtig"))>0) {
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => str_replace(array('#'), chr(10), file_get_contents('assets/kopieerpasta/vochtig.txt'))));
+}
+
+/*
 //nieuw persoon
 else if ($telegram->newPerson() == true) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Welkom in" . $telegram->getGroupName() . ", " . $telegram->getParticipantName() . "!"));
@@ -387,13 +393,5 @@ else if ($telegram->newPerson() == true) {
 //persoon weg
 else if ($telegram->newPerson() == false) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $telegram->getParticipantName() . " was gehalt."));
-}
-
-print_r($telegram->messageFromGroup());
-echo '<br>';
-echo 'groepnaam=' . $telegram->getGroupName();
-echo '<br>';
-echo 'new of left=' . $telegram->newPerson();
-echo '<br>';
-echo 'persoon=' . $telegram->getParticipantName();
+}*/
 ?>
