@@ -179,24 +179,24 @@ class Telegram {
         return true;
     }
 
+    public function getGroupName() {
+	return $this->data["message"]["chat"]["title"];
+    }
+
     public function getParticipantUpdate() {
-        if ($this->data["message"]["left_chat_participant"]) {
+        if ($this->data["message"]["left_chat_participant"] !== "") {
             return 'left';
-        } else if ($this->data["message"]["new_chat_participant"] == "") {
+        } else if ($this->data["message"]["new_chat_participant"] !== "") {
             return 'new';
         }
     }
 
     public function getParticipantName() {
-        if ($this->data["message"]["left_chat_participant"]) {
+        if ($this->data["message"]["left_chat_participant"]["first_name"] !== "") {
             return $this->data["message"]["left_chat_participant"]["first_name"];
-        } else if ($this->data["message"]["new_chat_participant"] == "") {
+        } else if ($this->data["message"]["new_chat_participant"]["first_name"] !== "") {
             return $this->data["message"]["new_chat_participant"]["first_name"];
         }
-    }
-
-    public function getGroupName() {
-	return $this->data["message"]["chat"]["title"];
     }
 
     public function getUpdates($offset = 0, $limit = 100, $timeout = 0, $update = true) {
