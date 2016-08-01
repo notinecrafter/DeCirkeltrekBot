@@ -177,6 +177,15 @@ class Telegram {
         return true;
     }
 
+    public function participantUpdate() {
+        if ($this->data["message"]["left_chat_participant"]) {
+            return 'left';
+        } else if ($this->data["message"]["new_chat_participant"] == "") {
+            return 'new';
+        }
+        return;
+    }
+
     public function getUpdates($offset = 0, $limit = 100, $timeout = 0, $update = true) {
         $content = array('offset' => $offset, 'limit' => $limit, 'timeout' => $timeout);
         $this->updates = $this->endpoint("getUpdates", $content);
