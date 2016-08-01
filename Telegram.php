@@ -183,12 +183,11 @@ class Telegram {
 	return $this->data["message"]["chat"]["title"];
     }
 
-    public function getParticipantUpdate() {
-        if ($this->data["message"]["left_chat_participant"] !== "") {
-            return 'left';
-        } else if ($this->data["message"]["new_chat_participant"] !== "") {
-            return 'new';
+    public function newPerson() {
+        if ($this->data["message"]["new_chat_participant"]"first_name"] !== "") {
+            return true;
         }
+	return true;
     }
 
     public function getParticipantName() {
