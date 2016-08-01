@@ -394,14 +394,9 @@ else if (strlen(strstr($text,"/topkekl"))>0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/topkek.jpg")));
 }
 
-/*
-//nieuw persoon
-else if ($telegram->newPerson() == true) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Welkom in" . $telegram->getGroupName() . ", " . $telegram->getParticipantName() . "!"));
+else if ($telegram->person() == 'new') {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Welkom, '.$telegram->personName().'!'));
+} else if ($telegram->person() == 'left') {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $telegram->personName().' was gehalt!'));
 }
-
-//persoon weg
-else if ($telegram->newPerson() == false) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $telegram->getParticipantName() . " was gehalt."));
-}*/
 ?>
