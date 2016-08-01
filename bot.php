@@ -384,6 +384,11 @@ else if (strlen(strstr($text,"/vochtig"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/vochtig.txt')));
 }
 
+//zalwel
+else if (strlen(strstr($text,"/zalwel"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/zalwel.jpg")));
+}
+
 /*
 //nieuw persoon
 else if ($telegram->newPerson() == true) {
