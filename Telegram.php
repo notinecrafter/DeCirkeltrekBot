@@ -185,7 +185,6 @@ class Telegram {
         } else if ($this->data["message"]["new_chat_participant"] == "") {
             return 'new';
         }
-        return;
     }
 
     public function getParticipantName() {
@@ -194,7 +193,6 @@ class Telegram {
         } else if ($this->data["message"]["new_chat_participant"] == "") {
             return $this->data["message"]["new_chat_participant"]["first_name"];
         }
-        return;
     }
 
     public function getGroupName() {
