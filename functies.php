@@ -3,7 +3,14 @@ function kopieerpasta($dir = 'assets/kopieerpasta') {
     $files = glob($dir . '/*.*');
     $file = array_rand($files);
     $kopieerpasta = file_get_contents($files[$file]);
-    return $kopieerpasta ;
+    return $kopieerpasta;
+}
+
+function nsb($dir = 'assets/nsb') {
+    $files = glob($dir . '/*.*');
+    $file = array_rand($files);
+    $nsb = file_get_contents($files[$file]);
+    return new CURLFile($nsb);
 }
 
 function oorporno() {
