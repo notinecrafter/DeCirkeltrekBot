@@ -11,23 +11,6 @@ $telegram = new Telegram($bot_id);
 $text = mb_strtolower($telegram->Text());
 $chat_id = $telegram->ChatID();
 
-//beetje alles zo
-function kopieerpasta($dir = 'assets/kopieerpasta') {
-    $files = glob($dir . '/*.*');
-    $file = array_rand($files);
-    $kopieerpasta = file_get_contents($files[$file]);
-    return $kopieerpasta ;
-}
-
-function oorporno() {
-    $oorporno = array("http://www.youtube.com/watch?v=xdb-KNTBdqA",
-                      "http://www.youtube.com/watch?v=hyB_VfrESNQ",
-                      "http://www.youtube.com/watch?v=_U2HsdbbDgI");
-    $count = count($oorporno) - 1;
-    $random = rand(0, $count);
-    return $oorporno[$random];
-}
-
 //leve de koning!
 if (strlen(strstr($text," koning"))>0 && strlen(strstr($text," de "))>0 && strlen(strstr($text,"leve "))>0 && substr( $text, 0, 1 ) !== "/" ) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Leve de koning!"));
