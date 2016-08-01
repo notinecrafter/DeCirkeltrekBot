@@ -189,6 +189,7 @@ class Telegram {
         } else if ($this->data["message"]["left_chat_participant"]["first_name"] !== "") {
             return false;
         }
+        return null;
     }
 
     public function getParticipantName() {
@@ -197,6 +198,7 @@ class Telegram {
         } else if ($this->data["message"]["new_chat_participant"]["first_name"] !== "") {
             return $this->data["message"]["new_chat_participant"]["first_name"];
         }
+        return null;
     }
 
     public function getUpdates($offset = 0, $limit = 100, $timeout = 0, $update = true) {
