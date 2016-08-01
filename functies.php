@@ -1,4 +1,12 @@
 <?php
+
+$bot_id = file_get_contents('./ignore/token');
+print_r($bot_id);
+$telegram = new Telegram($bot_id);
+
+$text = mb_strtolower($telegram->Text());
+$chat_id = $telegram->ChatID();
+
 function kopieerpasta($dir = 'assets/kopieerpasta') {
     $files = glob($dir . '/*.*');
     $file = array_rand($files);
