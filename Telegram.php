@@ -177,11 +177,20 @@ class Telegram {
         return true;
     }
 
-    public function participantUpdate() {
+    public function getParticipantUpdate() {
         if ($this->data["message"]["left_chat_participant"]) {
             return 'left';
         } else if ($this->data["message"]["new_chat_participant"] == "") {
             return 'new';
+        }
+        return;
+    }
+
+    public function getParticipantName() {
+        if ($this->data["message"]["left_chat_participant"]) {
+            return $this->data["message"]["left_chat_participant"]["first_name"];
+        } else if ($this->data["message"]["new_chat_participant"] == "") {
+            return $this->data["message"]["new_chat_participant"]["first_name"]
         }
         return;
     }
