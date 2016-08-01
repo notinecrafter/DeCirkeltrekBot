@@ -388,4 +388,10 @@ else if ($telegram->getParticipantUpdate() == 'new') {
 else if ($telegram->getParticipantUpdate() == 'left') {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $telegram->getParticipantName() . " was gehalt."));
 }
+
+echo 'groepnaam=' . $telegram->getGroupName();
+echo '<br>';
+echo 'new of left=' . $telegram->getParticipantUpdate();
+echo '<br>';
+echo 'persoon=' . $telegram->getParticipantName();
 ?>
