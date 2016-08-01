@@ -10,7 +10,7 @@ function nsb($dir = 'assets/nsb') {
     $files = glob($dir . '/*.*');
     $file = array_rand($files);
     $nsb = file_get_contents($files[$file]);
-    return new CURLFile($nsb);
+    return $nsb;
 }
 
 function oorporno() {
