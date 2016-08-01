@@ -190,7 +190,14 @@ class Telegram {
         if ($this->data["message"]["left_chat_participant"]) {
             return $this->data["message"]["left_chat_participant"]["first_name"];
         } else if ($this->data["message"]["new_chat_participant"] == "") {
-            return $this->data["message"]["new_chat_participant"]["first_name"]
+            return $this->data["message"]["new_chat_participant"]["first_name"];
+        }
+        return;
+    }
+
+    public function getGroupName() {
+        if (messageFromGroup() == true) {
+            return $this->data["message"]["chat"]["title"];
         }
         return;
     }
