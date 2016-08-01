@@ -186,7 +186,7 @@ class Telegram {
     public function newPerson() {
         if ($this->data["message"]["new_chat_participant"]"first_name"] !== "") {
             return true;
-        } if ($this->data["message"]["left_chat_participant"]"first_name"] !== "") {
+        } else if ($this->data["message"]["left_chat_participant"]"first_name"] !== "") {
             return false;
         }
     }
