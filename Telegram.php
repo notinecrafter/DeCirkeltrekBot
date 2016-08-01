@@ -178,7 +178,7 @@ class Telegram {
         }
         return true;
     }
-
+/*
     public function getGroupName() {
 	return $this->data["message"]["chat"]["title"];
     }
@@ -199,9 +199,9 @@ class Telegram {
             return $this->data["message"]["new_chat_participant"]["first_name"];
         }
         return null;
-    }
+    }*/
 
-    public function getUpdates($offset = 0, $limit = 1, $timeout = 0, $update = true) {
+    public function getUpdates($offset = 0, $limit = 100, $timeout = 0, $update = true) {
         $content = array('offset' => $offset, 'limit' => $limit, 'timeout' => $timeout);
         $this->updates = $this->endpoint("getUpdates", $content);
         if ($update) {
