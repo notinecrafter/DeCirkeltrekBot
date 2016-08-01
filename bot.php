@@ -6,14 +6,6 @@ error_reporting(E_ALL | E_STRICT);
 include("Telegram.php");
 include("functies.php");
 
-//variables
-$bot_id = file_get_contents('./ignore/token');
-print_r($bot_id);
-$telegram = new Telegram($bot_id);
-
-$text = mb_strtolower($telegram->Text());
-$chat_id = $telegram->ChatID();
-
 //leve de koning!
 if (strlen(strstr($text," koning"))>0 && strlen(strstr($text," de "))>0 && strlen(strstr($text,"leve "))>0 && substr( $text, 0, 1 ) !== "/" ) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Leve de koning!"));
