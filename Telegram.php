@@ -201,7 +201,7 @@ class Telegram {
         return null;
     }
 
-    public function getUpdates($offset = 0, $limit = 100, $timeout = 0, $update = true) {
+    public function getUpdates($offset = 0, $limit = 1, $timeout = 0, $update = true) {
         $content = array('offset' => $offset, 'limit' => $limit, 'timeout' => $timeout);
         $this->updates = $this->endpoint("getUpdates", $content);
         if ($update) {
