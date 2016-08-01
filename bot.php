@@ -381,7 +381,7 @@ else if (strlen(strstr($text,"/levededevs"))>0) {
 
 //vochtig
 else if (strlen(strstr($text,"/vochtig"))>0) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => str_replace(array('#'), chr(10), file_get_contents('assets/kopieerpasta/vochtig.txt'))));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/vochtig.txt')));
 }
 
 /*
