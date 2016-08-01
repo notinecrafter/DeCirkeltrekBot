@@ -1,7 +1,6 @@
 <?php
 
 $bot_id = file_get_contents('./ignore/token');
-print_r($bot_id);
 $telegram = new Telegram($bot_id);
 
 $text = mb_strtolower($telegram->Text());
