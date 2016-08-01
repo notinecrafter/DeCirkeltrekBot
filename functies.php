@@ -1,4 +1,20 @@
 <?php
+function kopieerpasta($dir = 'assets/kopieerpasta') {
+    $files = glob($dir . '/*.*');
+    $file = array_rand($files);
+    $kopieerpasta = file_get_contents($files[$file]);
+    return $kopieerpasta ;
+}
+
+function oorporno() {
+    $oorporno = array("http://www.youtube.com/watch?v=xdb-KNTBdqA",
+                      "http://www.youtube.com/watch?v=hyB_VfrESNQ",
+                      "http://www.youtube.com/watch?v=_U2HsdbbDgI");
+    $count = count($oorporno) - 1;
+    $random = rand(0, $count);
+    return $oorporno[$random];
+}
+
 function papgrap() {
     $result = null;
     // get feeds and parse items
