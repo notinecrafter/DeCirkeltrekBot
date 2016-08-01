@@ -4,9 +4,9 @@ class Telegram {
     private $data = array();
     private $updates = array();
 
-	public function getToken() {
-		$bot_id = file_get_contents('./ignore/token');
-	}
+    public function getToken() {
+        $bot_id = file_get_contents('./ignore/token');
+    }
 	
     public function __construct($bot_id) {
         $this->bot_id = $bot_id;
