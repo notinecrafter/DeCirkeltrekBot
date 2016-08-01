@@ -188,7 +188,7 @@ else if (strlen(strstr($text,"/goedbezig"))>0) {
 }
 
 //nee
-else if (strlen(strstr($text,"/nee"))>0) {
+else if (strlen(strstr($text,"/nee"))>0 && strlen(strstr($text,"/neetoch"))==0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/hahanee.jpg")));
 }
 
@@ -335,6 +335,11 @@ else if (strlen(strstr($text,"/saai"))>0) {
 //klootviool
 else if (strlen(strstr($text,"/klootviool"))>0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/klootviool.jpg")));
+}
+
+//neetoch
+else if (strlen(strstr($text,"/neetoch"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/neetoch.jpg")));
 }
 
 //levededevs
