@@ -415,7 +415,7 @@ else if (strlen(strstr($text,"/levededevs"))>0) {
 }
 
 //hulp
-else if (strlen(strstr($text,"/hulp"))>0){
+else if (strlen(strstr($text,"/hulp"))>0) {
 	if ($telegram->messageFromGroup() == false) {
 	    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('./ignore/commands.txt')));
 	} else {
@@ -424,9 +424,7 @@ else if (strlen(strstr($text,"/hulp"))>0){
 }
 
 //riv of rip
-else if (strlen(strstr($text,"riv"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/riv.jpg")));
-} else if (strlen(strstr($text,"rip"))>0) {
+else if ($text == "riv" || $text == "rip") {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/riv.jpg")));
 }
 
