@@ -6,7 +6,7 @@ $telegram = new Telegram($bot_id);
 $text = mb_strtolower($telegram->Text());
 $chat_id = $telegram->ChatID();
 
-if ($_SERVER['HTTP_X_GITHUB_EVENT'] == 'push') {
+if ( $_POST['payload'] ) {
     shell_exec( 'git reset --hard && git pull' );
 }
 
