@@ -399,12 +399,12 @@ else if (strlen(strstr($text,"/levededevs"))>0) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84" . PHP_EOL . "Ik sta op github. https://github.com/Maartenwut/LeveDeKoningBot-Telegram"));
 }
 
-//commands
-else if (strlen(strstr($text,"/commands"))>0){
-	if ($telegram->messageFromGroup() == true) {
-	    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Doe dat maar niet in een groep.", 'reply_to_message_id' => $telegram->MessageID()));
-	} else if ($telegram->messageFromGroup() == false) {
+//hulp
+else if (strlen(strstr($text,"/hulp"))>0){
+	if ($telegram->messageFromGroup() == false) {
 	    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('./ignore/commands.txt')));
+	} else {
+	    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Doe dat maar niet in een groep.", 'reply_to_message_id' => $telegram->MessageID()));
 	}
 }
 else if ($telegram->person() != false){
