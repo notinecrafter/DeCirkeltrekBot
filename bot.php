@@ -374,11 +374,6 @@ else if (strlen(strstr($text,"/poetsgebakken"))>0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/poetsgebakken.jpg")));
 }
 
-//levededevs
-else if (strlen(strstr($text,"/levededevs"))>0) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84" . PHP_EOL . "Ik sta op github. https://github.com/Maartenwut/LeveDeKoningBot-Telegram"));
-}
-
 //vochtig
 else if (strlen(strstr($text,"/vochtig"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/vochtig.txt')));
@@ -397,6 +392,11 @@ else if (strlen(strstr($text,"/topkek"))>0) {
 //ikookbedankt
 else if (strlen(strstr($text,"/ikookbedankt"))>0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/ikookbedankt.jpg")));
+}
+
+//levededevs
+else if (strlen(strstr($text,"/levededevs"))>0) {
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84" . PHP_EOL . "Ik sta op github. https://github.com/Maartenwut/LeveDeKoningBot-Telegram"));
 }
 
 else if ($telegram->person() == 'new') {
