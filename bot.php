@@ -390,7 +390,7 @@ else if (strlen(strstr($text,"/zalwel"))>0) {
 }
 
 //topkek
-else if (strlen(strstr($text,"/topkekl"))>0) {
+else if (strlen(strstr($text,"/topkek"))>0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/topkek.jpg")));
 }
 
