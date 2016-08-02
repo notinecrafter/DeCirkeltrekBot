@@ -381,7 +381,7 @@ else if (strlen(strstr($text,"/poetsgebakken"))>0) {
 
 //vochtig
 else if (strlen(strstr($text,"/vochtig"))>0) {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/vochtig.txt')));
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/vochtig.jpg")));
 }
 
 //zalwel
@@ -412,6 +412,16 @@ else if (strlen(strstr($text,"/accuraat"))>0) {
 //gezichtspalm
 else if (strlen(strstr($text,"/gezichtspalm"))>0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/gezichtspalm.jpg")));
+}
+
+//dankje
+else if (strlen(strstr($text,"/dankje"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/dankje.jpg")));
+}
+
+//fedora
+else if (strlen(strstr($text,"/fedora"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => file_get_contents('assets/kopieerpasta/fedora.txt')));
 }
 
 //levededevs
