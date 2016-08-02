@@ -400,10 +400,12 @@ else if (strlen(strstr($text,"/levededevs"))>0) {
 }
 
 //commands
-else if ($telegram->messageFromGroup() == true) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Doe dat maar niet in een groep.", 'reply_to_message_id' => $telegram->MessageID()));
-} else if ($telegram->messageFromGroup() == false) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('./ignore/commands.txt')));
+else if (strlen(strstr($text,"/commands"))>0){
+	if ($telegram->messageFromGroup() == true) {
+	    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Doe dat maar niet in een groep.", 'reply_to_message_id' => $telegram->MessageID()));
+	} else if ($telegram->messageFromGroup() == false) {
+	    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('./ignore/commands.txt')));
+	}
 }
 else if ($telegram->person() != false){
 	if ($telegram->person() == 'new') {
