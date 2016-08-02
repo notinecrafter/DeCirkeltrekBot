@@ -45,7 +45,7 @@ else if (strlen(strstr($text,"/netjes"))>0) {
 }
 
 //wat
-else if (strlen(strstr($text,"/wat"))>0 && strlen(strstr($text,"/watzeije")) == 0) {
+else if (strlen(strstr($text,"/wat"))>0 && strlen(strstr($text,"/watzeije")) == 0 && strlen(strstr($text,"watch")) == 0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/wat.jpg")));
 }
 
