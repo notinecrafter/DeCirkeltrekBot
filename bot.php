@@ -8,6 +8,11 @@ if (strlen(strstr($text," koning"))>0 && strlen(strstr($text," de "))>0 && strle
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Leve de koning!"));
 }
 
+//riv of rip
+else if (strlen(strstr($text,"riv"))>0 || strlen(strstr($text,"rip"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/riv.jpg")));
+}
+
 //levedekoning
 else if (strlen(strstr($text,"/levedekoning"))>0) {
 	$telegram->sendVoice(array('chat_id' => $chat_id, 'voice' => new CURLFile("./assets/levedekoning.mp3")));
@@ -421,11 +426,6 @@ else if (strlen(strstr($text,"/hulp"))>0) {
 	} else {
 	    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Doe dat maar niet in een groep.", 'reply_to_message_id' => $telegram->MessageID()));
 	}
-}
-
-//riv of rip
-else if ($text == "riv" || $text == "rip") {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/riv.jpg")));
 }
 
 else if ($telegram->person() != false){
