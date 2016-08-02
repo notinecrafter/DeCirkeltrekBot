@@ -394,6 +394,11 @@ else if (strlen(strstr($text,"/topkek"))>0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/topkek.jpg")));
 }
 
+//ikookbedankt
+else if (strlen(strstr($text,"/ikookbedankt"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/ikookbedankt.jpg")));
+}
+
 else if ($telegram->person() == 'new') {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Welkom, '.$telegram->personName().'!'));
 } else if ($telegram->person() == 'left') {
