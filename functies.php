@@ -6,10 +6,6 @@ $telegram = new Telegram($bot_id);
 $text = mb_strtolower($telegram->Text());
 $chat_id = $telegram->ChatID();
 
-if ( $_POST['payload'] ) {
-    shell_exec( 'git reset --hard && git pull' );
-}
-
 function kopieerpasta($dir = 'assets/kopieerpasta') {
     $files = glob($dir . '/*.*');
     $file = array_rand($files);
