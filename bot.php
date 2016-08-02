@@ -399,9 +399,18 @@ else if (strlen(strstr($text,"/levededevs"))>0) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84" . PHP_EOL . "Ik sta op github. https://github.com/Maartenwut/LeveDeKoningBot-Telegram"));
 }
 
-else if ($telegram->person() == 'new') {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Welkom, '.$telegram->personName().'!'));
-} else if ($telegram->person() == 'left') {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $telegram->personName().' was gehalt!'));
+//commands
+else if ($telegram->messageFromGroup() == true) {
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Doe dat maar niet in een groep.", 'reply_to_message_id' => $telegram->messsage_id()));
+} else if ($telegram->messageFromGroup() == false) {
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('./ignore/commands.txt')));
 }
+else if ($telegram->person() != false){
+	if ($telegram->person() == 'new') {
+		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Welkom, '.$telegram->personName().'!'));
+	} else if ($telegram->person() == 'left') {
+		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $telegram->personName().' was gehalt!'));
+	}
+}
+
 ?>
