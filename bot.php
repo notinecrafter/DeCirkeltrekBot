@@ -404,9 +404,9 @@ else if (strlen(strstr($text,"/accuraat"))>0) {
 	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAAD3QADCoLFAho4MfEEHQ92Ag' ));
 }
 
-//riv of rip
-else if (strlen(strstr($text,"riv"))>0 || strlen(strstr($text,"rip"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/riv.jpg")));
+//gezichtspalm
+else if (strlen(strstr($text,"/gezichtspalm"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/gezichtspalm.jpg")));
 }
 
 //levededevs
@@ -422,6 +422,14 @@ else if (strlen(strstr($text,"/hulp"))>0){
 	    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Doe dat maar niet in een groep.", 'reply_to_message_id' => $telegram->MessageID()));
 	}
 }
+
+//riv of rip
+else if (strlen(strstr($text,"riv"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/riv.jpg")));
+} else if (strlen(strstr($text,"rip"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/riv.jpg")));
+}
+
 else if ($telegram->person() != false){
 	if ($telegram->person() == 'new') {
 		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Welkom, '.$telegram->personName().'!'));
