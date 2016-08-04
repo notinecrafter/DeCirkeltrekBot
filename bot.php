@@ -9,7 +9,7 @@ if (strlen(strstr($text," koning"))>0 && strlen(strstr($text," de "))>0 && strle
 }
 
 //riv of rip
-else if (strlen(strstr($text,"riv"))>0) {
+else if ($text == "riv" || $text == "/riv") {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/riv.jpg")));
 }
 
