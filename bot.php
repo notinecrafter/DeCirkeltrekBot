@@ -426,7 +426,7 @@ else if (strlen(strstr($text,"/fedora"))>0) {
 //nuleiland
 else if (strlen(strstr($text, "/nuleiland"))>0) {
         $telegram->sendLocation(array('chat_id' => $chat_id, 'latitude' => '0.0', 'longitude' => '0.0'));
-        $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "randerige vlag van Null Island hier"));
+        $telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/nullisland.png")));
 }
 
 //levededevs
