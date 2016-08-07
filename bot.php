@@ -423,6 +423,11 @@ else if (strlen(strstr($text,"/dankje"))>0) {
 else if (strlen(strstr($text,"/fedora"))>0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => file_get_contents('assets/kopieerpasta/fedora.txt')));
 }
+//nuleiland
+else if (strlen(strstr($text, "/waarisdekoning"))>0) {
+        $telegram->sendLocation(array('chat_id' => $chat_id, 'latitude' => '0.0', 'longitude' => '0.0'));
+        $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "randerige vlag van Null Island hier"));
+}
 
 //levededevs
 else if (strlen(strstr($text,"/levededevs"))>0) {
