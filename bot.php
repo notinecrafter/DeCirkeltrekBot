@@ -110,7 +110,7 @@ else if (strlen(strstr($text,"/meemsterkaas"))>0) {
 }
 
 //cirkeltrek
-else if (strlen(strstr($text,"/meemsterkaas"))>0 && substr( $text, 0, 1 ) === "/") {
+else if (strlen(strstr($text,"/meemsterkaas"))>0 && substr( $text, 0, 1 ) == "/") {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/cirkeltrek.txt')));
 }
 
