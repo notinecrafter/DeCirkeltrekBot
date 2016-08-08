@@ -53,7 +53,7 @@ function papgrap() {
 		
 		$degrap = strstr($text, '</p> </div>', true);
 		
-        $result .= urldecode(strip_tags($degrap));
+        $result .= htmlspecialchars_decode(urldecode(strip_tags($degrap)));
     }
     return $result;
 }
