@@ -110,7 +110,7 @@ else if (strlen(strstr($text,"/meemsterkaas"))>0) {
 }
 
 //cirkeltrek
-else if (strlen(strstr($text,"/cirkeltrek"))>0) {
+else if ($text == "/cirkeltrek") {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/cirkeltrek.txt')));
 }
 
