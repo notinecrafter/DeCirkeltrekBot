@@ -445,7 +445,7 @@ else if (strlen(strstr($text,"/hulp"))>0) {
 
 else if ($telegram->person() != false){
 	if ($telegram->person() == 'new') {
-		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Welkom, '.$telegram->personName().'!'));
+		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Sterf, '.$telegram->personName().'!'));
 	} else if ($telegram->person() == 'left') {
 		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $telegram->personName().' was gehalt!'));
 	}
