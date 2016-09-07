@@ -421,17 +421,23 @@ else if (strlen(strstr($text,"/dankje"))>0) {
 
 //fedora
 else if (strlen(strstr($text,"/fedora"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => file_get_contents('assets/kopieerpasta/fedora.txt')));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/fedora.txt')));
 }
+
 //nuleiland
 else if (strlen(strstr($text, "/nuleiland"))>0) {
         $telegram->sendLocation(array('chat_id' => $chat_id, 'latitude' => '0.0', 'longitude' => '0.0'));
         $telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/nullisland.png")));
 }
 
+//excuses
+else if (strlen(strstr($text,"/excuses"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/excuses.jpg")));
+}
+
 //levededevs
 else if (strlen(strstr($text,"/levededevs"))>0) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84" . PHP_EOL . "Ik sta op github. https://github.com/Maartenwut/LeveDeKoningBot"));
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84" . PHP_EOL . "Ik sta op github. https://github.com/Maartenwut/DeCirkeltrekBot"));
 }
 
 //hulp
