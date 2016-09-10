@@ -108,9 +108,10 @@ class Telegram {
             return json_decode($rawData, true);
         } else {
             return $this->data;
+            print_r($this->data);
         }
     }
-
+    
     public function setData(array $data) {
         $this->data = $data;
     }
