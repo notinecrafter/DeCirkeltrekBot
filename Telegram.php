@@ -212,6 +212,7 @@ class Telegram {
             }
         }
         return $this->updates;
+        print_r($this->updates);
     }
 
     public function serveUpdate($update) {
