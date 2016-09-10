@@ -125,7 +125,7 @@ class Telegram {
         return $this->data["message"]["chat"]["id"];
     }
     public function ChatReply() {
-        return $this->data["message"]["reply_to_message_id"];
+        return $this->data["message"]["reply_to_message"];
     }
 
     public function Callback_Query() {
