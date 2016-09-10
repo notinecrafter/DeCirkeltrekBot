@@ -3,6 +3,12 @@
 include("Telegram.php");
 include("functies.php");
 
+
+//leve de koning!
+if (strlen(strstr($text,"dit"))>0 && isset($telegram->ChatReply)) {
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Dat", 'reply_to_message_id' => $telegram->MessageID()));
+}
+
 //leve de koning!
 if (strlen(strstr($text," koning"))>0 && strlen(strstr($text," de "))>0 && strlen(strstr($text,"leve "))>0 && substr( $text, 0, 1 ) !== "/" ) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Leve de koning!"));
