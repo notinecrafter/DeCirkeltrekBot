@@ -29,6 +29,7 @@ class Telegram {
     }
 
     public function sendMessage(array $content) {
+    	sleep(500);
         return $this->endpoint("sendMessage", $content);
     }
 
