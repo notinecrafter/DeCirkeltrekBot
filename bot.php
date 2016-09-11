@@ -3,14 +3,41 @@
 include("Telegram.php");
 include("functies.php");
 
+//stop en start
+if ($text == "/decirkeltrekbot" && $telegram->Username() == "Maartenwut") {
+	if (file_exists(stop)) {
+		unlink(stop) or $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Halp ik kan niet schrijven"));;
+	    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Kek aan"));
+	} else {
+		$ourFileHandle = fopen(stop, 'w') or $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Halp ik kan niet schrijven"));
+		fclose($ourFileHandle);
+	    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Kek uit"));
+	}
+} else if ($text == "/decirkeltrekbot" && $telegram->Username() != "Maartenwut") {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "haha nee", 'reply_to_message_id' => $telegram->MessageID()));
+}
 
-//leve de koning!
-if (strlen(strstr($text,"dit"))>0 && isset($telegram->ChatReply)) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Dat", 'reply_to_message_id' => $telegram->MessageID()));
+//failsafes
+else if (strlen(strstr($text,"http"))>0) {
+	die();
+}
+
+//dit
+else if ($text == "dit" && $telegram->ReplyID() && !file_exists(stop)) {
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Dat", 'reply_to_message_id' => $telegram->ReplyID()));
+}
+
+//kek, wauw en ik ihe
+else if ($text == "kek" && !file_exists(stop)) {
+	if (rand(0,99) < 10) {
+		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Keʞ", 'reply_to_message_id' => $telegram->MessageID()));
+	} else {
+		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $telegram->Text(), 'reply_to_message_id' => $telegram->ReplyID()));
+	}
 }
 
 //leve de koning!
-if (strlen(strstr($text," koning"))>0 && strlen(strstr($text," de "))>0 && strlen(strstr($text,"leve "))>0 && substr( $text, 0, 1 ) !== "/" ) {
+else if (strlen(strstr($text," koning"))>0 && strlen(strstr($text," de "))>0 && strlen(strstr($text,"leve "))>0 && substr( $text, 0, 1 ) !== "/" ) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Leve de koning!"));
 }
 
@@ -87,7 +114,7 @@ else if (strlen(strstr($text,"/spanje"))>0) {
 
 //willemsliefde
 else if (strlen(strstr($text,"/willemsliefde"))>0 || strlen(strstr($text,"/koningsliefde"))>0) {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Willem is liefde, Willem is leven.'));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Willem is liefde, Willem is leven.'. PHP_EOL . 'https://www.youtube.com/watch?v=VSv0w8egCYE'));
 }
 
 //koningslied
@@ -195,8 +222,8 @@ else if (strlen(strstr($text,"/nee"))>0 && strlen(strstr($text,"/neetoch"))==0) 
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/hahanee.jpg")));
 }
 
-//ja
-else if (strlen(strstr($text,"/ja"))>0) {
+//willem en ja
+else if (strlen(strstr($text,"/willem"))>0 || strlen(strstr($text,"/ja"))>0) {
 	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADUwADkzoFAAGkGccCqSSWSAI' ));
 }
 
@@ -446,21 +473,37 @@ else if (strlen(strstr($text,"/siebe"))>0) {
 	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/siebe.jpg")));
 }
 
+//luchtvochtigheid
+else if (strlen(strstr($text,"/luchtvochtigheid"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "69%"));
+}
+
+//rms
+else if (strlen(strstr($text,"/rms"))>0) {
+	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => rms()));
+}
+
+//meem
+else if (strlen(strstr($text,"/meem"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => meem()));
+}
+
+//zeg
+else if (strlen(strstr($text,"/zeg"))>0 && $telegram->ReplyID() == null) {
+	$telegram->sendVoice(array('chat_id' => $chat_id, 'voice' => zeg(substr($text,4))));
+}
+
+//zeg op reply
+else if ($text == "/zeg" && $telegram->ReplyID()) {
+	$telegram->sendVoice(array('chat_id' => $chat_id, 'voice' => zeg($telegram->ReplyText()), 'reply_to_message_id' => $telegram->ReplyID()));
+}
+
 //levededevs
 else if (strlen(strstr($text,"/levededevs"))>0) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. \xF0\x9F\x98\x84" . PHP_EOL . "Ik sta op github. https://github.com/Maartenwut/DeCirkeltrekBot"));
 }
 
-//hulp
-else if (strlen(strstr($text,"/hulp"))>0) {
-	if ($telegram->messageFromGroup() == false) {
-	    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('./ignore/commands.txt')));
-	} else {
-	    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Doe dat maar niet in een groep.", 'reply_to_message_id' => $telegram->MessageID()));
-	}
-}
-
-else if ($telegram->person() != false){
+else if ($telegram->person() != false) {
 	if ($telegram->person() == 'new') {
 		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Sterf, '.$telegram->personName().'!'));
 	} else if ($telegram->person() == 'left') {
@@ -468,4 +511,7 @@ else if ($telegram->person() != false){
 	}
 }
 
+else if ($telegram->newphoto()) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Haha vet lelijke foto man doe weg'));
+}
 ?>

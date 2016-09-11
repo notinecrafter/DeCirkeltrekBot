@@ -125,8 +125,17 @@ class Telegram {
     public function ChatID() {
         return $this->data["message"]["chat"]["id"];
     }
-    public function ChatReply() {
-        return $this->data["message"]["reply_to_message"]["message_id"];
+    public function ReplyID() {
+		if (isset($this->data["message"]["reply_to_message"]["message_id"]) == true) {
+			return $this->data["message"]["reply_to_message"]["message_id"];
+		}
+		return null;
+    }
+    public function ReplyText() {
+		if (isset($this->data["message"]["reply_to_message"]["text"]) == true) {
+			return $this->data["message"]["reply_to_message"]["text"];
+		}
+		return null;
     }
 
     public function Callback_Query() {
@@ -188,6 +197,13 @@ class Telegram {
             return 'new';
         } else if (isset($this->data["message"]["left_chat_participant"]["first_name"]) == true) {
             return 'left';
+        }
+        return false;
+    }
+
+    public function newphoto() {
+        if (isset($this->data["message"]["new_chat_photo"]) == true) {
+            return true;
         }
         return false;
     }
