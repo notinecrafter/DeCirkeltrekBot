@@ -48,19 +48,6 @@ function oorporno() {
 }
 
 function draai($text) {
-    /*$search  = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '.', ',');
-    $replace = array('ɐ', 'q', 'ɔ', 'p', 'ǝ', 'ɟ', 'b', 'ɥ', 'ı', 'ſ', 'ʞ', 'ן', 'ɯ', 'u', 'o', 'd', 'b', 'ɹ', 's', 'ʇ', 'n', 'ʌ', 'ʍ', 'x', 'ʎ', 'z', '˙','\'');
-    $text = $text.explode();
-    $result = "";
-    
-    for($x = 0; $x < sizeof($text); $x++){
-        for($y = 0; $y < sizeof($search); $y++){
-            if($text[$x] === $search[$y]){
-                $result += $replace[$y];
-            }
-        }
-    }
-    return strrev($result);*/
 return 'we zijn bezig';
 }
 
