@@ -528,6 +528,11 @@ else if ($text == "/draai" && $telegram->ReplyID()) {
   $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => draai($telegram->ReplyText()), 'reply_to_message_id' => $telegram->ReplyID()));
 }
 
+//draaitest
+else if ($text == "/draaitest" && $telegram->ReplyID() == null){
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => draaitest(substr($text,6))));
+} 
+
 //levededevs
 else if (strlen(strstr($text,"/levededevs"))>0) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. Ook heb ik de @VochtigeBot overgenomen. Hoezo monopolie? \xF0\x9F\x98\x84 \xF0\x9F\x99\x88" . PHP_EOL . "https://github.com/Maartenwut/DeCirkeltrekBot"));
