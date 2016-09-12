@@ -48,7 +48,7 @@ function oorporno() {
 }
 
 function draai($text) {
-    $search  = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '.', ',');
+    /*$search  = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '.', ',');
     $replace = array('ɐ', 'q', 'ɔ', 'p', 'ǝ', 'ɟ', 'b', 'ɥ', 'ı', 'ſ', 'ʞ', 'ן', 'ɯ', 'u', 'o', 'd', 'b', 'ɹ', 's', 'ʇ', 'n', 'ʌ', 'ʍ', 'x', 'ʎ', 'z', '˙','\'');
     $text = $text.explode();
     $result = "";
@@ -60,7 +60,8 @@ function draai($text) {
             }
         }
     }
-    return strrev($result);
+    return strrev($result);*/
+return 'we zijn bezig';
 }
 
 function papgrap() {
