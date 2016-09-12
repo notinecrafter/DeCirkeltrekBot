@@ -26,13 +26,13 @@ function rms($dir = 'assets/rms') {
     return $rms;
 }
 
-function zeg($tekst) {
+function zeg($tekst, $taal) {
    $woorden =  substr($tekst, 0, 200);
    $words = urlencode($woorden);
    $file  = md5($words);
    $file = "audio/" . $file . ".mp3";
    if (!file_exists($file)) {
-     $mp3 = file_get_contents('http://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=' . $words . '&tl=nl-nl');
+     $mp3 = file_get_contents('http://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=' . $words . '&tl=' . $taal);
      file_put_contents($file, $mp3);
    }
    return new CURLFile($file);
@@ -45,6 +45,12 @@ function oorporno() {
     $count = count($oorporno) - 1;
     $random = rand(0, $count);
     return $oorporno[$random];
+}
+
+function draai($tekst) {
+  $search  = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '.', ',');
+  $replace = array('ɐ', 'q', 'ɔ', 'p', 'ǝ', 'ɟ', 'b', 'ɥ', 'ı', 'ſ', 'ʞ', 'ן', 'ɯ', 'u', 'o', 'd', 'b', 'ɹ', 's', 'ʇ', 'n', 'ʌ', 'ʍ', 'x', 'ʎ', 'z', '˙','\'');
+  return str_replace($search, $replace, strrev($tekst));
 }
 
 function papgrap() {
@@ -66,9 +72,9 @@ function papgrap() {
         $result .= '*'.$title.'*';
         $result .= PHP_EOL;
         $result .= PHP_EOL;
-		
-		$degrap = strstr($text, '</p> </div>', true);
-		
+    
+    $degrap = strstr($text, '</p> </div>', true);
+    
         $result .= htmlspecialchars_decode(urldecode(strip_tags($degrap)));
     }
     return $result;
@@ -93,10 +99,10 @@ function meem() {
         $link = strstr($feed[$rand]['link'], 'submitted');
         $result .= $title;
         $result .= PHP_EOL;
-		
-	$regex = '/https?\:\/\/[^\" ]+/i';
-	preg_match_all($regex, $link, $matches);
-		
+    
+  $regex = '/https?\:\/\/[^\" ]+/i';
+  preg_match_all($regex, $link, $matches);
+    
         $result .= $matches[0][1];
     }
     return $result;
@@ -121,10 +127,10 @@ function feesboek() {
         $link = strstr($feed[$rand]['link'], 'submitted');
         $result .= $title;
         $result .= PHP_EOL;
-		
-	$regex = '/https?\:\/\/[^\" ]+/i';
-	preg_match_all($regex, $link, $matches);
-		
+    
+  $regex = '/https?\:\/\/[^\" ]+/i';
+  preg_match_all($regex, $link, $matches);
+    
         $result .= $matches[0][1];
     }
     return $result;
@@ -149,10 +155,10 @@ function ik_ihe() {
         $link = strstr($feed[$rand]['link'], 'submitted');
         $result .= $title;
         $result .= PHP_EOL;
-		
-	$regex = '/https?\:\/\/[^\" ]+/i';
-	preg_match_all($regex, $link, $matches);
-		
+    
+  $regex = '/https?\:\/\/[^\" ]+/i';
+  preg_match_all($regex, $link, $matches);
+    
         $result .= $matches[0][1];
     }
     return $result;
