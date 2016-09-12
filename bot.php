@@ -21,6 +21,9 @@ if ($text == "/decirkeltrekbot" && $telegram->Username() == "Maartenwut") {
 else if (strlen(strstr($text,"http"))>0) {
   die();
 }
+else if (file_exists(stop)) {
+  die();
+}
 
 //dit
 else if ($text == "dit" && $telegram->ReplyID() && !file_exists(stop)) {
