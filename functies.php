@@ -59,6 +59,7 @@ function draai($text) {
                 $result += $replace[$y];
             }
         }
+    }
     return strrev($result);
 }
 
